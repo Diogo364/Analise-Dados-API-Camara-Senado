@@ -11,8 +11,6 @@ ENV PYTHONUNBUFFERED 1
 ADD requirements.txt .
 RUN python -m pip install -r requirements.txt
 
-RUN pip install requests
-
 WORKDIR /app
 ADD . /app
 
@@ -21,4 +19,4 @@ ADD . /app
 # USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["python", "./src/app.py"]
+CMD streamlit run app.py
