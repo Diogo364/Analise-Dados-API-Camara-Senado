@@ -21,14 +21,14 @@ deputados = None
 O objetivo desse projeto é trazer informações e insights a respeito da atuação e composição dos parlamentares.
 '''
 
-# if st.button('Atualize os dados de deputados'):
-#     st.text('Atualizando dados...')
-#     os.system('python atualizar_deputados.py')
-#     try:
-#         deputados = pd.read_csv('data/deputados.csv')
-#         st.dataframe(deputados.head())
-#     except (FileNotFoundError, FileExistsError):
-#         st.text('Arquivo não encontrado, tente novamente!')
+if st.button('Atualize os dados de deputados'):
+    st.text('Atualizando dados...')
+    os.system('python atualizar_deputados.py')
+    try:
+        deputados = pd.read_csv('data/deputados.csv')
+        st.dataframe(deputados.head())
+    except (FileNotFoundError, FileExistsError):
+        st.text('Arquivo não encontrado, tente novamente!')
 
 deputados = pd.read_csv('data/deputados.csv')
 
