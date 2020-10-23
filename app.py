@@ -24,16 +24,17 @@ O objetivo desse projeto é trazer informações e insights a respeito da atuaç
 if st.button('Atualize os dados de deputados'):
     st.text('Atualizando dados...')
     os.system('python atualizar_deputados.py')
+    st.text('Tente carregar os dados agora.')
+
+
+if st.button('Carregar dados locais'):
     try:
         deputados = pd.read_csv('data/deputados.csv')
         st.dataframe(deputados.head())
-    except (FileNotFoundError, FileExistsError):
-        st.text('Arquivo não encontrado, tente novamente!')
-
-deputados = pd.read_csv('data/deputados.csv')
+    except (FileExistsError, FileNotFoundError):
+        st.text("Arquivo não existente, tente atualizar os dados")
 
 
-st.dataframe(deputados.head())
 
 if deputados is not None:
     fig, ax = plt.subplots(1, 2, figsize=(10, 10))
